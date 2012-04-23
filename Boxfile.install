@@ -1,0 +1,8 @@
+web1: 
+  before_deploy:
+  # Download media images from github repo & extract
+  - "tar -xz < <(curl -s http://cloud.github.com/downloads/pagodabox/magento-install/magento-media.tar.gz)"
+  # Import sample catalog sql file
+  - mysql -h $DB1_HOST --port $DB1_PORT -u $DB1_USER -p$DB1_PASS $DB1_NAME < /var/www/pagoda/magento_sample_data_for_1.6.1.0.sql
+  # Increase php execution time to accomidate db import & migrations
+  php_max_execution_time: 300

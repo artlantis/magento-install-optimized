@@ -1,0 +1,29 @@
+web1: 
+  name: mag-app 
+  shared_writable_dirs:
+    - media
+    - var
+  php_extensions:
+    - pdo_mysql
+    - mysql
+    - simplexml
+    - mcrypt
+    - hash
+    - gd
+    - dom
+    - iconv
+    - curl
+    - soap
+    - eaccelerator
+    - redis
+  static_expire: 31536000
+  after_build:
+    # Run script that will generate local.xml config file and place it in app/etc/
+    - "php /var/www/pagoda/local_xml_generator.php"
+  php_max_execution_time: 100
+db1: #component type & number
+  name: mag-db #component settings
+  type: mysql
+cache1: #component type & number
+  name: mag-cache #component settings
+  type: redis
