@@ -14,7 +14,7 @@ web1:
     - iconv
     - curl
     - soap
-    - eaccelerator
+    - apc
     - redis
   static_expire: 31536000
   after_build:
