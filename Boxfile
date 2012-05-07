@@ -16,6 +16,7 @@ web1:
     - soap
     - apc
     - redis
+  php_version: 5.3.8
   static_expire: 31536000
   after_build:
     # Run script that will generate local.xml config file and place it in app/etc/
